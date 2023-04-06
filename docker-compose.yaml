@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: susteynable_kratos_ui:debug
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    ports:
+      - 13000:3000
+    environment:
+      - KRATOS_PUBLIC_URL=https://susteynable.com/.ory/kratos/public
+    volumes:
+      - type: bind
+        source: ./
+        target: /app/
